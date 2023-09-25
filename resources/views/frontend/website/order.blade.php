@@ -81,7 +81,7 @@
                     <input type="hidden" name="customer_email" value="{{ Auth::user()->email }}">
                     <input type="hidden" name="customer_whatsapp" value="{{ Auth::user()->whatsapp }}">
                     <input type="hidden" name="discount" value="0">
-                    <input type="hidden" name="amount" value="{{$total}}">
+                    {{-- <input type="hidden" name="amount" value="{{$total}}"> --}}
                     <input type="hidden" name="payment_type" value="transfer">
                     <input type="hidden" name="payment_status" value="0">
                     <input type="hidden" name="status" value="0">
