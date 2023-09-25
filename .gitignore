@@ -5,7 +5,6 @@
 /public/storage
 /public
 /storage/*.key
-/vendor
 /database/migrations
 .env
 .env.backup
