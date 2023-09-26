@@ -33,37 +33,6 @@ class OrderController extends Controller
         $order->status = $request['status'];
 
         $order->save();
-
-        $cart = session()->get('cart');
-        if (!$cart) {
-            return redirect('products/')->with('message', 'Cart Empty');
-        } else {
-            foreach ($cart as $cart_item) {
-                $data[] = [
-                    'product_id' => $cart_item['product_id'],
-                    'order_id' => $order->id,
-                    'amount' => $cart_item['price'],
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s'),
-                ];
-            }
-        }
-        DB::table('order_items')->insert($data);
-        $request->session()->forget('cart');
-
-        $userId = Auth::user()->id;
-
-
-        $unique_id = uniqid();
-        $walletLog = new Walletlog;
-        $walletLog->log_id = $unique_id;
-        $walletLog->code = Str::uuid()->toString(50);
-        $walletLog->user_id = $userId;
-        $walletLog->amount = $order->amount;
-        $walletLog->type = "buy";
-        $walletLog->information = "Pembelian Produk dengan Nomor Invoice : <br>" . $order->invoice_number;
-        $walletLog->save();
-
         // return $deposit;
 
         return redirect('orders/success/' . $order->code)->with('message', 'Order Successfully');

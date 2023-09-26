@@ -74,6 +74,8 @@
                 @else
                 <span class='text-success'>Domain <b>{{$name_domain}}</b> Tersedia, Lanjutkan untuk order.</span>
 
+                {{-- Form --}}
+
                 <form action="{{url('orders')}}" method="POST">
                     @csrf
                     <input type="hidden" name="domain_name" value="{{$name_domain}}">
@@ -86,8 +88,31 @@
                     <input type="hidden" name="payment_status" value="0">
                     <input type="hidden" name="status" value="0">
 
+                    <div class="alert alert-success my-3">
+                        <h6> Harga Paket :</h6>
+                        <span class="fs-2">Rp. {{number_format($website->price)}}</span>
+                        <span>/{{$website->period}}</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Pilih Lama Kontrak</label>
+                        <select class="form-select" aria-label="Default select example" name="tot_pin_requested"
+                            onchange="calculateAmount(this.value)">
+                            <option selected>Pilih Lama Kontrak</option>
+                            <option value="6">6 Bulan</option>
+                            <option value="12">12 Bulan</option>
+                            <option value="24">24 Bulan</option>
+                        </select>
+                    </div>
+
+                    <div class="my-3">
+                        <h6> Total Harga :</h6>
+                        Rp. <input class="form-control-lg border-0" name="tot_amount" id="tot_amount" type="text"
+                            readonly>
+                    </div>
+
                     <div class="d-grid gap-2 mx-auto">
-                        <button type="submit" class="btn btn-primary">Proses Order</button>
+                        <a href="#" type="submit" class="btn btn-primary">Proses Order</a>
                     </div>
 
                 </form>
@@ -113,4 +138,17 @@
     </div>
 </div>
 
+@endsection
+
+@section('scripts')
+<script>
+    function calculateAmount(val) {  
+        var price = {{$website->price}};
+        var tot_price = val * price;  
+        var divobj = document.getElementById('tot_amount');  
+        
+        divobj.value = tot_price.toLocaleString();  
+        
+    }  
+</script>
 @endsection
