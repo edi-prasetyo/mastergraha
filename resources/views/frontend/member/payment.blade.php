@@ -11,7 +11,7 @@
                 <div class="col-md-8">
                     <p class="textmuted fw-bold h6 mb-0">Total Payment</p>
                     <p class="h1 fw-bold d-flex"> <span
-                            class=" fas fa-dollar-sign textmuted pe-1 h6 align-text-top mt-1"></span>{{number_format($order->amount)}}
+                            class=" fas fa-dollar-sign textmuted pe-1 h6 align-text-top mt-1"></span>{{number_format($order->total_amount)}}
                     </p>
                     Tanggal Order : <span class="text-danger">{{date('d M Y',
                         strtotime($order->created_at))}}</span><br>

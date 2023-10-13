@@ -18,7 +18,7 @@
                             <div class="col-md-8">
                                 <p class="textmuted fw-bold h6 mb-0">Total Payment</p>
                                 <p class="h1 fw-bold d-flex"> <span
-                                        class=" fas fa-dollar-sign textmuted pe-1 h6 align-text-top mt-1"></span>{{number_format($order_detail->amount)}}
+                                        class=" fas fa-dollar-sign textmuted pe-1 h6 align-text-top mt-1"></span>{{number_format($order_detail->total_amount)}}
                                 </p>
                                 @if($order_detail->status == 0)
                                 <p>Pesanan Anda Belum di Bayar Silahkan melakukan Pembayaran</p>
@@ -63,35 +63,30 @@
                                     <tr>
                                         <th>Produk</th>
                                         <th>Harga</th>
-                                        <th> Status</th>
+                                        <th> periode</th>
                                         <th width="20%">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody class="table-border-bottom-0">
-                                    @foreach($product_items as $key => $product)
+
                                     <tr>
                                         <td>
                                             <div class="d-flex align-items-center">
 
                                                 <div class="d-flex flex-column">
-                                                    <span class="fw-semibold lh-1">{{$product->product_name}}</span>
+                                                    <span class="fw-semibold lh-1">{{$product->name}}</span>
+                                                    <small>{{$website->name}}</small>
                                                 </div>
                                             </div>
                                         </td>
 
                                         <td>
                                             <div class="lh-1"><span class="text-primary fw-semibold">Rp.
-                                                    {{number_format($product->product_price)}}</span></div>
+                                                    {{number_format($website->price)}}</span></div>
 
                                         </td>
                                         <td>
-                                            @if($order_detail->status == 0)
-                                            <span class="badge bg-label-danger">Pending</span>
-                                            @elseif($order_detail->status == 1)
-                                            <span class="badge bg-label-warning">Proses</span>
-                                            @else
-                                            <span class="badge bg-label-success">Selesai</span>
-                                            @endif
+                                            {{$order_detail->quantity}} Bulan
 
                                         </td>
                                         <td>
@@ -110,7 +105,7 @@
 
                                         </td>
                                     </tr>
-                                    @endforeach
+
                                 </tbody>
                             </table>
                         </div>

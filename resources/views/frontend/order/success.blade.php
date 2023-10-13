@@ -16,6 +16,8 @@
                 </div>
                 <div class="invoice p-5">
 
+
+
                     <div class="row">
                         <hr>
                         <div class="col-md-4 col-4">
@@ -41,18 +43,21 @@
                     </div>
                     <hr>
 
-                    @php $total = 0 @endphp
+
                     <div class="row">
-                        @foreach($websites as $key => $item)
-                        @php $total += $item->product_price @endphp
+
+
                         <div class="col-md-6 col-6">
-                            <div class="fw-bold"> {{$item->product_name}}</div>
+                            <div class="fw-bold"> {{$subscriptions->product_name}}</div>
+                            <div>Paket : {{$subscriptions->website_name}}</div>
+                            <div>Domain : {{$subscriptions->domain_name}}</div>
+                            Berlaku Hingga {{$subscriptions->end_date}}
                         </div>
                         <div class="col-md-6 col-6 text-end">
-                            {{number_format($item->product_price)}}
+                            {{number_format($order->amount)}} X {{$subscriptions->period}}
                         </div>
                         <hr>
-                        @endforeach
+
                     </div>
                     <div class="row">
 
@@ -61,7 +66,7 @@
                         </div>
                         <div class="col-md-6 col-6 text-end">
                             <span class="pe-5">Subtotal </span>
-                            <span class="fw-bold"> {{number_format($total)}}</span>
+                            <span class="fw-bold"> {{number_format($order->total_amount)}}</span>
                         </div>
                     </div>
 

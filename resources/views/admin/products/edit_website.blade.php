@@ -4,15 +4,23 @@
     @if(session('message'))
     <div class="alert alert-danger">{{session('message')}}</div>
     @endif
+
+    @if ($errors->any())
+    <div class="alert alert-warning">
+        @foreach ($errors->all() as $error)
+        <div>{{ $error }}</div>
+        @endforeach
+    </div>
+    @endif
     <div class="row">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header bg-white">
-                    Buat Paket Baru
+                    {{$product->name}}
                 </div>
                 <div class="card-body">
-
-                    <form action="{{url('admin/products/add_website')}}" method="POST">
+                    <form action="{{url('admin/products/update_website/' .$website->id)}}" method="POST">
+                        @method('put')
                         @csrf
                         <input type="hidden" name="product_id" value="{{$product->id}}">
 
@@ -20,40 +28,46 @@
                             <div class="mb-3 col-md-3">
                                 <label class="form-label">Paket</label>
                                 <select class="form-select" aria-label="Default select example" name="name">
-                                    <option selected>Open this select menu</option>
-                                    <option value="basic">Basic</option>
-                                    <option value="advance">Advance</option>
-                                    <option value="ultimate">Ultimate</option>
+                                    <option selected>Pilih Paket</option>
+                                    <option value="basic" {{$website->name == 'basic' ? 'selected' : ''}}>Basic</option>
+                                    <option value="advance" {{$website->name == 'advance' ? 'selected' : ''}}>Advance
+                                    </option>
+                                    <option value="ultimate" {{$website->name == 'ultimate' ? 'selected' : ''}}>Ultimate
+                                    </option>
                                 </select>
                             </div>
                             <div class="mb-3 col-md-3">
-                                <label class="form-label">Paket</label>
+                                <label class="form-label">periode</label>
                                 <select class="form-select" aria-label="Default select example" name="period">
-                                    <option selected>Open this select menu</option>
-                                    <option value="bulan">Bulan</option>
-                                    <option value="tahun">Tahun</option>
-                                    <option value="lifetime">Lifetime</option>
+                                    <option selected>Pilih Periode</option>
+                                    <option value="bulan" {{$website->period == 'bulan' ? 'selected' : ''}}>Bulan
+                                    </option>
+                                    <option value="tahun" {{$website->period == 'tahun' ? 'selected' : ''}}>Tahun
+                                    </option>
+                                    <option value="lifetime" {{$website->period == 'lifetime' ? 'selected' :
+                                        ''}}>Lifetime</option>
                                 </select>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <label class="form-label">Harga</label>
-                                <input type="text" class="form-control" name="price">
+                                <input type="text" class="form-control" name="price" value="{{$website->price}}">
                             </div>
-
                         </div>
 
                         <div class="mb-3">
                             <div class="form-check form-switch">
                                 <label class="form-check-label">Best Seller?</label>
-                                <input class="form-check-input" type="checkbox" role="switch"
-                                    id="flexSwitchCheckDefault" name="best_seller">
+                                <input class="form-check-input" type="checkbox" name="best_seller"
+                                    {{$website->best_seller ==
+                                '1'
+                                ? 'checked':''}}>
                             </div>
                         </div>
 
                         <div class="col-md-12 mb-3">
                             <label class="form-label">Fasilitas</label>
                             <textarea name="facility" id="summernote2"
-                                class="form-control @error('facility') is-invalid @enderror"></textarea>
+                                class="form-control @error('facility') is-invalid @enderror">{{$website->facility}}</textarea>
                             @error('facility')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -63,7 +77,7 @@
                         <div class="col-md-12 mb-3">
                             <label class="form-label">Description</label>
                             <textarea name="description" id="summernote"
-                                class="form-control @error('description') is-invalid @enderror"></textarea>
+                                class="form-control @error('description') is-invalid @enderror">{{$website->description}}</textarea>
                             @error('description')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -72,44 +86,13 @@
                         </div>
 
                         <div class="mb-3">
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header bg-white">
-                    Website
-                </div>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nama</th>
-                            <th scope="col">Harga</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($websites as $key => $web)
-                        <tr>
-                            <td>{{$web->name}}</td>
-                            <td>{{number_format($web->price)}}</td>
-                            <td>
-                                <a href="{{url('admin/products/edit_website/' .$web->id)}}" class="text-success"><i
-                                        class="feather-edit mr-3  fa-fw"></i></a>
-                                <a href="{{url('admin/products/delete_website/' .$web->id)}}" class="text-danger"><i
-                                        class="feather-trash mr-3  fa-fw"></i></a>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
     </div>
-
 </div>
 @endsection
 

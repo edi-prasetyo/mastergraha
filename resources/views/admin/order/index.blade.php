@@ -20,11 +20,11 @@
                         <th scope="col">Invoice</th>
                         <th scope="col">Customer</th>
                         <th scope="col">Phone</th>
-                        <th scope="col">Date</th>
+                        <th scope="col">email</th>
+                        <th scope="col">Type</th>
                         <th scope="col">Status Pembayaran</th>
-                        <th scope="col">Status</th>
                         <th scope="col">Amount</th>
-                        <th width="20%">Action</th>
+                        <th width="15%">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,7 +33,8 @@
                         <td>{{$data->invoice_number}}</td>
                         <td>{{$data->customer_name}}</td>
                         <td>{{$data->customer_phone}}</td>
-                        <td>{{date('d M Y', strtotime($data->created_at))}}</td>
+                        <td>{{$data->customer_email}}</td>
+                        <td>{{$data->order_type}}</td>
                         <td>
                             @if($data->payment_status == 1)
                             <i class="fa-solid fa-circle text-success" style="font-size: 7px;"></i> <span
@@ -43,16 +44,8 @@
                                 class="text-danger">Unpaid</span>
                             @endif
                         </td>
-                        <td>
-                            @if($data->status == 0)
-                            <span class="badge bg-danger opacity-50">Pending</span>
-                            @elseif($data->status == 1)
-                            <span class="badge bg-warning opacity-50">Proses</span>
-                            @else
-                            <span class="badge bg-success opacity-50">Selesai</span>
-                            @endif
-                        </td>
-                        <td>{{number_format($data->amount)}}</td>
+
+                        <td>Rp. {{number_format($data->total_amount)}}</td>
                         <td>
                             <a class="btn btn-success" href="{{url('admin/orders/' .$data->id)}}"> View</a>
                         </td>

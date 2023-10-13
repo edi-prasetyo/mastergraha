@@ -1,5 +1,8 @@
 @extends('layouts.app')
-@section('title', 'Products')
+@section('title', $product->name)
+@section('meta_keyword', $product->meta_keyword)
+@section('meta_description', $product->meta_description)
+@section('image', url($product->image_cover))
 @section('content')
 @include('layouts.inc.frontend.header')
 <div class="container my-3">
@@ -40,10 +43,9 @@
                         <div class="d-grid gap-2">
 
 
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#previewModal">
-                                Screenshot
-                            </button>
+                            <a href="{{ url('subscription/'.$product->uuid) }}" class="btn btn-primary">
+                                Order
+                            </a>
 
                             {{-- <a href="{{ url('add-to-cart/'.$product->uuid) }}"
                                 class="btn btn-primary btn-rounded text-center" role="button">
@@ -161,115 +163,11 @@
             </div>
 
             <div class="col-md-4">
-                <div class="card mb-3">
-                    <div class="card-header bg-white">
-                        <h3>IDR {{number_format($product->price, 0)}}</h3>
-                    </div>
-                    <div class="card-body">
-                        {!!$product->short_description!!}
-                    </div>
-                    <div class="card-footer">
-                        <div class="d-grid gap-2">
-                            <a href="{{ url('add-to-cart/'.$product->uuid) }}"
-                                class="btn btn-primary btn-rounded text-center" role="button">
-                                <i class='bx bxs-cart'></i> Add to cart</a>
-                        </div>
-                    </div>
-                </div>
-                {{-- <div class="card">
-                    <div class="card-header d-flex justify-content-between align-items-start bg-white">
 
-                    </div>
-                    <div class="card-body">
-
-                        <div class="avatar-img-frame">
-                            <img src="http://localhost:8000/uploads/products/1693462204.png">
-                        </div>
-
-                    </div>
-                </div> --}}
             </div>
             {{-- Nav Tabs End --}}
         </div>
     </div>
 </div>
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="previewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-
-
-
-                <div id="carouselExampleDark" class="carousel carousel-dark slide">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
-                            aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
-                            aria-label="Slide 3"></button>
-                    </div>
-                    <div class="carousel-inner">
-
-                        @foreach($images as $key => $image)
-                        <div class="carousel-item active" data-bs-interval="10000">
-                            <img src="{{asset($image->image)}}" class="d-block w-100" alt="...">
-                        </div>
-                        @endforeach
-
-
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
 
 @endsection

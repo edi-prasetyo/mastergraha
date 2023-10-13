@@ -9,6 +9,7 @@
                     Online</small>
             </div>
         </div>
+        <a href="{{url('')}}" target="blank" class="btn btn-primary btn-sm text-white">Visit Web</a>
     </div>
     <p class="text-muted font-weight-bold text-uppercase px-3 small pb-2 mb-0"><b>Main</b></p>
     <ul class="nav flex-column  mb-0">

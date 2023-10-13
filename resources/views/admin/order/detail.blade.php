@@ -13,9 +13,8 @@
                 <div class="col-md-8">
                     <div class="row">
                         <div class="col-md-6">
-                            <p class="ps-3 textmuted fw-bold h6 mb-0">Total Payment</p>
-                            <p class="h1 fw-bold d-flex"> <span
-                                    class=" fas fa-dollar-sign textmuted pe-1 h6 align-text-top mt-1"></span>{{number_format($order->amount)}}
+                            <p class="textmuted fw-bold h6 mb-0">Total Payment</p>
+                            <p class="h1 fw-bold d-flex"> Rp. {{number_format($order->total_amount)}}
                             </p>
                             @if($order->status == 0)
                             <span class="badge bg-danger">Pending</span>
@@ -24,6 +23,13 @@
                             @else
                             <span class="badge bg-success">Selesai</span>
                             @endif
+                            <div class="alert alert-success mt-3">
+
+                                Nama Customer : {{$order->customer_name}} <br>
+                                Email : {{$order->customer_email}} <br>
+                                Whatsapp : {{$order->customer_whatsapp}} <br>
+
+                            </div>
 
                             <div class="mt-3">
                                 @if($order->status == 0)
@@ -69,40 +75,36 @@
                 <table class="table text-nowrap">
                     <thead>
                         <tr>
-                            <th>Tanggal</th>
-                            <th>Produk</th>
-                            <th>Harga</th>
-                            <th> Status</th>
+                            <th>Website</th>
+                            <th>tanggal mulai</th>
+                            <th>tanggal Expired</th>
+                            <th>Paket</th>
+                            <th>Periode</th>
                             <th width="20%">Actions</th>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        @foreach($product_items as $key => $product)
+
                         <tr>
                             <td>
                                 <div class="d-flex align-items-center">
 
                                     <div class="d-flex flex-column">
-                                        <span class="fw-semibold lh-1">{{$product->product_name}}</span>
+                                        <span class="fw-semibold lh-1">{{$subscription->domain_name}}</span>
                                     </div>
                                 </div>
                             </td>
 
-                            <td>
-                                <div class="lh-1"><span class="text-primary fw-semibold">Rp.
-                                        {{number_format($product->product_price)}}</span></div>
-                                <small class="text-muted">Lunas</small>
-                            </td>
-                            <td><span class="badge bg-label-success">Completed</span></td>
+                            <td>{{$subscription->start_date}}</td>
+                            <td>{{$subscription->end_date}}</td>
+                            <td>{{$subscription->website_name}}</td>
+                            <td>{{$subscription->period}} Bulan</td>
                             <td>
 
-                                <a href="{!! url('member/directory/9f37359d-79bf-4a20-ae3e-a282d709d909/file/'. $product->file_download) !!}"
-                                    download="{{$product->file_download}}" class="btn btn-primary text-white">
-                                    <span class="tf-icons bx bx-pie-chart-alt me-1"></span> Download
-                                </a>
+
                             </td>
                         </tr>
-                        @endforeach
+
                     </tbody>
                 </table>
             </div>

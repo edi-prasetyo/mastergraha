@@ -36,18 +36,22 @@
             <ul class="navbar-nav me-auto mb-2 mb-md-0 flex-column p-2 w-100">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{url('member/dashboard')}}"><i
-                            class='bx bx-home-alt'></i>
+                            class='bx bx-home-alt fs-5'></i>
                         Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('member/orders')}}"><i class='bx bx-cart'></i> My Orders</a>
+                    <a class="nav-link" href="{{url('member/orders')}}"><i class='bx bx-receipt fs-5'></i> Tagihan</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('member/profile')}}"><i class='bx bx-user'></i> Profile</a>
+                    <a class="nav-link" href="{{url('member/websites')}}"><i class='bx bx-cart fs-5'></i> My Website</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('member/profile')}}"><i class='bx bx-user fs-5'></i> Profile</a>
                 </li>
                 @if(Auth::user()->role == 3)
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('member/products')}}"><i class='bx bx-package'></i> My Product</a>
+                    <a class="nav-link" href="{{url('member/products')}}"><i class='bx bx-package'></i> My
+                        Product</a>
                 </li>
                 @endif
             </ul>

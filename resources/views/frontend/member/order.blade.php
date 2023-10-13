@@ -47,9 +47,9 @@
                                         strtotime($data->created_at))}}</td>
                                     <td>
                                         <div class="lh-1"><span class="text-primary fw-semibold">Rp.
-                                                {{number_format($data->amount)}}</span>
+                                                {{number_format($data->total_amount)}}</span>
                                         </div>
-                                        <small class="text-muted">Deposit Payment</small>
+                                        <small class="text-muted">{{$data->payment_type}}</small>
                                     </td>
                                     <td>
                                         @if($data->status == 0)
@@ -61,6 +61,8 @@
                                         @endif
                                     </td>
                                     <td>
+                                       
+
                                         <a href="{{url('member/orders/detail/'. $data->code)}}"
                                             class="btn btn-label-primary">
                                             <span class="tf-icons bx bx-pie-chart-alt me-1"></span> Lihat

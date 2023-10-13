@@ -8,10 +8,12 @@ use App\Models\Bank;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Product;
+use App\Models\Subscription;
 use App\Models\User;
 use App\Models\UserDetail;
 use App\Models\Wallet;
 use App\Models\Walletlog;
+use App\Models\Website;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -55,13 +57,10 @@ class HomeController extends Controller
     public function order_detail($code)
     {
         $order_detail = Order::where('code', $code)->first();
-        $product_items = OrderItem::where('order_id', $order_detail->id)
-            ->join('products', 'products.id', '=', 'order_items.product_id')
-            ->select('order_items.*', 'products.name as product_name', 'products.price as product_price', 'products.file_download', 'products.short_description as product_description')
-            ->get();
-        // return $product_items;
-
-        return view('frontend.member.order_detail', compact('order_detail', 'product_items'));
+        $product = Product::where('id', $order_detail->product_id)->first();
+        $subscription = Subscription::where('id', $order_detail->subscription_id)->first();
+        $website = Website::where('id', $subscription->website_id)->first();
+        return view('frontend.member.order_detail', compact('order_detail', 'product', 'subscription', 'website'));
     }
 
     function downloadFile($file_download)
@@ -158,5 +157,13 @@ class HomeController extends Controller
         $user->update();
 
         return redirect('member/profile')->with('message', 'Profile Upgrade successfully!');
+    }
+
+    public function websites()
+    {
+        $user_id = Auth::user()->id;
+        $subscriptions = Subscription::where(['user_id' => $user_id, 'status' => 1])->paginate(5);
+        // return $subscriptions;
+        return view('frontend.member.website', compact('subscriptions'));
     }
 }

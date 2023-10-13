@@ -81,9 +81,9 @@
             </h1>
         </div>
 
-        <div class="row mb-3 text-center">
+        <div class="row mb-3 ">
             @foreach($websites as $key => $web)
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div
                     class="card mb-4 rounded-3 shadow-sm @if($web->best_seller == 1) {{'bg-primary text-white'}}@endif">
                     <div class="card-header py-3">
@@ -94,11 +94,44 @@
                                 {{number_format($web->price)}}</span>
                             <small class="fw-light fs-5">/{{$web->period}}</small>
                         </div>
+                        <p>{!!$web->facility!!}</p>
                         <a href="{{url('subscription/order/' .$web->uuid)}}"
                             class="w-100 btn btn-lg btn-primary  @if($web->best_seller == 1) {{'btn-warning'}}@endif">Order</a>
+                        <button type="button" class="w-100 btn btn-info text-white mt-3" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                            keterangan
+                        </button>
+
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-muted">
+                                        {!!$web->description!!}
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
                     </div>
                 </div>
             </div>
+
+
+
             @endforeach
 
         </div>
@@ -106,61 +139,6 @@
 
 
     <div class="col-md-10 mx-auto">
-
-
-        <div class="card">
-            <div class="card-header bg-white">
-                <h4 class="text-center">Perbandingan Lisensi</h4>
-            </div>
-            <div class="table-responsive">
-                <table class="table text-center">
-                    <thead>
-                        <tr>
-                            <th style="width: 34%;"></th>
-                            <th style="width: 22%;">Single Lisensi</th>
-                            <th style="width: 22%;">Full Lisensi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row" class="text-start">Hosting dan Domain</th>
-                            <td><i class='bx bx-check fs-3 text-success'></i></td>
-                            <td><i class='bx bx-check fs-3 text-success'></i></td>
-
-                        </tr>
-                        <tr>
-                            <th scope="row" class="text-start">Admin Panel website</th>
-                            <td><i class='bx bx-check fs-3 text-success'></i></td>
-                            <td><i class='bx bx-check fs-3 text-success'></i></td>
-                        </tr>
-                    </tbody>
-
-                    <tbody>
-                        <tr>
-                            <th scope="row" class="text-start">Halaman Frontend</th>
-                            <td><i class='bx bx-check fs-3 text-success'></i></td>
-                            <td><i class='bx bx-check fs-3 text-success'></i></td>
-                        </tr>
-                        <tr>
-                            <th scope="row" class="text-start">Unlimited Email</th>
-                            <td><i class='bx bx-x fs-3 text-danger'></i></td>
-                            <td><i class='bx bx-check fs-3 text-success'></i></td>
-                        </tr>
-                        <tr>
-                            <th scope="row" class="text-start">Akses Cpanel Hosting</th>
-                            <td><i class='bx bx-x fs-3 text-danger'></i></td>
-                            <td><i class='bx bx-check fs-3 text-success'></i></td>
-                        </tr>
-                        <tr>
-                            <th scope="row" class="text-start">Source Code Website</th>
-                            <td><i class='bx bx-x fs-3 text-danger'></i></td>
-                            <td><i class='bx bx-check fs-3 text-success'></i></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
 
         <div class="col-md-6 mx-auto text-center my-5">
             <h1 class="display-5 fw-bold mb-3 ls-sm ">

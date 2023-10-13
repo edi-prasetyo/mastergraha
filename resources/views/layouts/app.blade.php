@@ -5,15 +5,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title>@yield('title')</title>
-  <meta name="description" content="@yield('meta_description')">
-  <meta name="keywords" content="@yield('meta_keyword')">
+  <title>@yield('title') | {{$option_nav->title}} | {{$option_nav->tagline}}</title>
+  <meta name="description" content="{{$option_nav->description}} @yield('meta_description')">
+  <meta name="keywords" content="{{$option_nav->keywords}} @yield('meta_keyword')">
   <meta name="author" content="@yield('title')">
+  <meta name="google-site-verification" content="{{$option_nav->google_meta}}">
+  <meta name="robots" content="noindex,nofollow">
   <meta property="og:image" content="@yield('image')">
+  <link rel="shortcut icon" href="{{asset('uploads/logo/'.$option_nav->favicon)}}">
   <link rel="stylesheet" href="{{asset('assets/vendor/boxicon/css/boxicons.min.css')}}">
   <link href="{{asset('assets/vendor/offcanvas/offcanvas-navbar.css')}}" rel="stylesheet">
   <link href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
   <link href="{{asset('assets/css/custom.css')}}" rel="stylesheet">
+  <link href="{{asset('assets/css/star.css')}}" rel="stylesheet">
 
 
 </head>

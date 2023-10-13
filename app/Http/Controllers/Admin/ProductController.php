@@ -122,9 +122,35 @@ class ProductController extends Controller
         $website->product_id = $request['product_id'];
         $website->name = $request['name'];
         $website->price = $request['price'];
+        $website->facility = $request['facility'];
+        $website->description = $request['description'];
+        $website->period = $request['period'];
+        $website->best_seller = $request->best_seller == true ? '1' : '0';
 
         $website->save();
         return redirect('admin/products')->with('message', 'Website Added Succesfully!');
+    }
+
+    public function edit_website(int $website_id)
+    {
+        $website = Website::where('id', $website_id)->first();
+        $product = Product::where('id', $website->product_id)->first();
+        return view('admin.products.edit_website', compact('website', 'product'));
+    }
+    public function update_website(Request $request, int $website_id)
+    {
+        $website = Website::where('id', $website_id)->first();
+        $website->product_id = $request['product_id'];
+        $website->name = $request['name'];
+        $website->price = $request['price'];
+        $website->facility = $request['facility'];
+        $website->description = $request['description'];
+        $website->period = $request['period'];
+        $website->best_seller = $request->best_seller == true ? '1' : '0';
+
+        $website->update();
+
+        return redirect('admin/products/show/' . $website->product_id)->with('message', 'Website update Succesfully!');
     }
 
     public function edit(int $product_id)
