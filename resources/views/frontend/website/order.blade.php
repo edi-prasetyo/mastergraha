@@ -19,7 +19,8 @@
 
                     <div id="domain-search-input">
                         <div class="input-group">
-                            <input type="text" class="form-control" name="domain_name" placeholder="Domain Name">
+                            <input type="text" class="form-control" name="domain_name" placeholder="Domain Name"
+                                required>
                             <select name="suffix" class="btn btn-warning">
                                 <option value=".com">.com</option>
                                 <option value=".net">.net</option>
@@ -33,29 +34,6 @@
                         </div>
                     </div>
                 </form>
-                {{-- @php
-
-                if(isset($_GET['check'])) {
-
-                if (!empty($_GET['domain_name'])){
-                $name_domain = trim($_GET['domain_name']).$_GET['suffix'];
-
-                if ( gethostbyname($name_domain) != $name_domain ) {
-                echo "<h4 style='color:red;'>Domain $name_domain telah digunakan, silahkan cari.</h4>";
-
-                }else{
-                echo "<h4 style='color:green;'>Domain $name_domain Tersedia, Lanjutkan untuk order.</h4>";
-                }
-                }
-                else {
-                echo "<h4 style='color:red;'>Error: Masukan Nama Domain.</h4>";
-                }
-                }
-                @endphp --}}
-
-
-
-
 
                 @if(isset($_GET['check']))
 
@@ -116,7 +94,7 @@
                 @else
                 <span class='text-success'>Domain <b>{{$name_domain}}</b> Tersedia, Lanjutkan untuk order.</span>
 
-                {{-- Form --}}
+
                 <form action="{{url('orders')}}" method="POST">
                     @csrf
                     <input type="hidden" name="website_id" value="{{$website->id}}">

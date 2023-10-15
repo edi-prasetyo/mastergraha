@@ -29,7 +29,7 @@ class OrderController extends Controller
 
         $subscription->user_id = Auth::user()->id;
         $subscription->uuid = $uuid_subs;
-        $subscription->product_id =  $request['website_id'];
+        $subscription->product_id =  $request['product_id'];
         $subscription->website_id = $request['website_id'];
         $subscription->product_name = $request['product_name'];
         $subscription->website_name = $request['website_name'];
@@ -81,7 +81,7 @@ class OrderController extends Controller
         $subscription = Subscription::where('uuid', $uuid)->first();
         $website = Website::where('id', $subscription->website_id)->first();
         $product = Product::where('id', $subscription->product_id)->first();
-        // return $website;
+        // return $product;
         return view('frontend/website/renewal', compact('subscription', 'website', 'product'));
     }
 
@@ -123,13 +123,15 @@ class OrderController extends Controller
     {
         $order = Order::where('code', $code)->first();
         $subscription_id = $order->subscription_id;
-        $subscriptions = DB::table('subscriptions')->where('subscriptions.id', $subscription_id)
-            ->join('products', 'products.id', '=', 'subscriptions.product_id')
-            ->select('subscriptions.*', 'products.name as product_name', 'products.price as product_price', 'products.short_description as product_description')
-            ->first();
-        $websites = Website::where('product_id', $order->product_id)->first();
-        // return $subscriptions;
-        return view('frontend.order.success', compact('order', 'subscriptions', 'websites'));
+        // $subscriptions = DB::table('subscriptions')->where('subscriptions.id', $subscription_id)
+        //     ->join('products', 'products.id', '=', 'subscriptions.product_id')
+        //     ->select('subscriptions.*', 'products.name as product_name', 'products.price as product_price', 'products.short_description as product_description')
+        //     ->first();
+        $subscription = Subscription::where('id', $subscription_id)->first();
+        $website = Website::where('product_id', $order->product_id)->first();
+        $product = Product::where('id', $order->product_id)->first();
+        // return $order;
+        return view('frontend.order.success', compact('order', 'subscription', 'website', 'product'));
     }
 
     function payment($code)

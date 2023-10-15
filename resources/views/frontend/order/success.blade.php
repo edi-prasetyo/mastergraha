@@ -48,13 +48,13 @@
 
 
                         <div class="col-md-6 col-6">
-                            <div class="fw-bold"> {{$subscriptions->product_name}}</div>
-                            <div>Paket : {{$subscriptions->website_name}}</div>
-                            <div>Domain : {{$subscriptions->domain_name}}</div>
-                            Berlaku Hingga {{$subscriptions->end_date}}
+                            <div class="fw-bold"> {{$product->name}}</div>
+                            <div>Paket : {{$website->name}}</div>
+                            <div>Domain : {{$subscription->domain_name}}</div>
+                            Berlaku Hingga {{$subscription->end_date}}
                         </div>
                         <div class="col-md-6 col-6 text-end">
-                            {{number_format($order->amount)}} X {{$subscriptions->period}}
+                            {{number_format($order->amount)}} X {{$subscription->period}}
                         </div>
                         <hr>
 

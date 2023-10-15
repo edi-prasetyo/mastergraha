@@ -64,7 +64,8 @@
                                         <th>Produk</th>
                                         <th>Harga</th>
                                         <th> periode</th>
-                                        <th width="20%">Actions</th>
+                                        <th> Total</th>
+                                        <th width="20%">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody class="table-border-bottom-0">
@@ -90,16 +91,17 @@
 
                                         </td>
                                         <td>
+                                            Rp. {{number_format($order_detail->total_amount)}}
 
-                                            @if($order_detail->payment_status == 0)
-                                            <a href="#" class="btn btn-label-danger disabled" disabled>
-                                                <span class="tf-icons bx bx-pie-chart-alt me-1"></span> Download
-                                            </a>
+                                        </td>
+                                        <td>
+
+                                            @if($order_detail->status == 0)
+                                            <span class="badge bg-label-danger">Pending</span>
+                                            @elseif($order_detail->status == 1)
+                                            <span class="badge bg-label-warning">Proses</span>
                                             @else
-                                            <a href="{!! url('member/directory/9f37359d-79bf-4a20-ae3e-a282d709d909/file/'. $product->file_download) !!}"
-                                                download="{{$product->file_download}}" class="btn btn-label-primary">
-                                                <span class="tf-icons bx bx-pie-chart-alt me-1"></span> Download
-                                            </a>
+                                            <span class="badge bg-label-success">Selesai</span>
                                             @endif
 
 
