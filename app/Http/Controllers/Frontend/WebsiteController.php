@@ -19,9 +19,11 @@ class WebsiteController extends Controller
         $option = Option::where('id', 1)->first();
         $product_id = $productDetail->id;
 
+        $images = $productDetail->productImages;
+
         $websites = Website::where('product_id', $product_id)->get();
-        // return $websites;
-        return view('frontend.website.subscription', compact('productDetail', 'option', 'websites'));
+        // return $images;
+        return view('frontend.website.subscription', compact('productDetail', 'option', 'websites', 'images'));
     }
     public function order($uuid)
     {

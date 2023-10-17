@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Slider;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Service;
 
 class FrontendController extends Controller
 {
@@ -15,7 +16,8 @@ class FrontendController extends Controller
         $sliders = Slider::where('status', '1')->get();
         $categories = Category::where('status', 1)->get();
         $products = Product::where('status', 1)->take(3)->get();
-        return view('frontend.index', compact('sliders', 'categories', 'products'));
+        $services = Service::all();
+        return view('frontend.index', compact('sliders', 'categories', 'products', 'services'));
     }
     public function categories()
     {

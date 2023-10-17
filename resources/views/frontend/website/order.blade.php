@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Graha Studio')
+@section('title', 'cari nama domain')
 @include('layouts.inc.frontend.header')
 @section('content')
 
@@ -152,9 +152,6 @@
                 {{-- <h4 style='color:red;'>Error: Masukan Nama Domain.</h4> --}}
 
                 @endif
-
-
-
             </div>
         </div>
     </div>

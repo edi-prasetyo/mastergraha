@@ -50,9 +50,9 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{url('admin/brands')}}" class="nav-link">
-                <i class="feather-archive mr-3  fa-fw"></i>
-                Brand
+            <a href="{{url('admin/tags')}}" class="nav-link">
+                <i class="feather-tag mr-3  fa-fw"></i>
+                tag
             </a>
         </li>
         <p class="text-muted font-weight-bold text-uppercase px-3 small py-2 mb-0"><b>Web Front</b></p>
@@ -71,6 +71,12 @@
                 <a href="{{url('admin/sliders')}}" class=" nav-link">
                     <i class="fa-solid fa-caret-right mr-3  fa-fw"></i>
                     Slider
+                </a>
+            </li>
+            <li class="nav-child">
+                <a href="{{url('admin/services')}}" class=" nav-link">
+                    <i class="fa-solid fa-caret-right mr-3  fa-fw"></i>
+                    Service
                 </a>
             </li>
         </ul>

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title>@yield('title') | {{$option_nav->title}} | {{$option_nav->tagline}}</title>
+  <title>@yield('title') - {{$option_nav->title}} | {{$option_nav->tagline}}</title>
   <meta name="description" content="{{$option_nav->description}} @yield('meta_description')">
   <meta name="keywords" content="{{$option_nav->keywords}} @yield('meta_keyword')">
   <meta name="author" content="@yield('title')">

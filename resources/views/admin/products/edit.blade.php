@@ -64,6 +64,35 @@
                         <textarea name="description" class="form-control"
                             id="summernote">{{$product->description}}</textarea>
                     </div>
+
+
+
+                    <div class="row my-3">
+
+                        @foreach($tagproduct as $tag)
+                        <div class="col-md-2">
+                            <div class="card border p-2">
+                                {{$tag->tag_name}}
+                                <a href="{{url('admin/products/delete_tag/' .$tag->id)}}" class="mt-2 text-white"
+                                    style="position: absolute;top:0;right:3px"><i
+                                        class="feather-x-circle text-danger"></i></a>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Tags</label>
+                        <select class="form-select" id="multiple-select-field" name="tags[]"
+                            data-placeholder="Choose anything" multiple>
+                            <option> - Pilih Tag -</option>
+                            @foreach($tags as $key => $tag)
+                            <option value="{{$tag->id}}">{{$tag->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+
                     <h3 class="my-3 pt-3 border-top">Meta Tag Seo</h3>
                     <div class="col-md-6">
                         <label class="form-label">meta Title</label>
@@ -236,6 +265,12 @@
         //     });
         // });
 
+        $( '#multiple-select-field' ).select2( {
+    theme: "bootstrap-5",
+    width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
+    placeholder: $( this ).data( 'placeholder' ),
+    closeOnSelect: false,
+} );
         $('#summernote').summernote({
             tabsize: 2
             , height: 230,

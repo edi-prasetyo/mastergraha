@@ -11,9 +11,12 @@ use App\Models\Product;
 use App\Http\Requests\ProductFormRequest;
 use App\Models\ProductImage;
 use App\Models\Program;
+use App\Models\Tag;
+use App\Models\TagParrent;
 use App\Models\Type;
 use App\Models\Website;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -26,8 +29,9 @@ class ProductController extends Controller
     {
         $categories = Category::all();
         $programs = Program::all();
+        $tags = Tag::all();
         // dd($categories);
-        return view('admin.products.create', compact('categories', 'programs'));
+        return view('admin.products.create', compact('categories', 'programs', 'tags'));
     }
     public function store(Request $request)
     {
@@ -101,6 +105,15 @@ class ProductController extends Controller
                 ]);
             }
         }
+        // Add Tags
+        $tags = $request['tags'];
+        foreach ($tags as $key => $tag) {
+            $data[] = [
+                'tag_id' => $tag,
+                'product_id' => $product->id,
+            ];
+        }
+        DB::table('tagparrents')->insert($data);
 
 
         return redirect('admin/products')->with('message', 'Product Added Succesfully!');
@@ -158,7 +171,12 @@ class ProductController extends Controller
         $categories = Category::all();
         $brands = Type::all();
         $product = Product::findOrFail($product_id);
-        return view('admin.products.edit', compact('categories', 'brands', 'product'));
+        $tags = Tag::all();
+        $tagproduct = TagParrent::where('product_id', $product_id)->join('tags', 'tags.id', '=', 'tagparrents.tag_id')
+            ->select('tagparrents.*', 'tags.name as tag_name')
+            ->get();
+        // return $tagproduct;
+        return view('admin.products.edit', compact('categories', 'brands', 'product', 'tags', 'tagproduct'));
     }
     public function update(ProductFormRequest $request, int $product_id)
     {
@@ -217,6 +235,16 @@ class ProductController extends Controller
                 }
             }
 
+            // Add Tags
+            $tags = $request['tags'];
+            foreach ($tags as $key => $tag) {
+                $data[] = [
+                    'tag_id' => $tag,
+                    'product_id' => $product->id,
+                ];
+            }
+            DB::table('tagparrents')->insert($data);
+
             return redirect('admin/products')->with('message', 'Product Updated Succesfully!');
         } else {
             return redirect('admin/products')->with('message', 'No Such Product ID Found ');
@@ -248,6 +276,13 @@ class ProductController extends Controller
     {
         $website = Website::findOrFail($website_id);
         $website->delete();
+        return redirect()->back()->with('message', 'Product and Image was Deleted!');
+    }
+    public function deletetag(int $tagparrent_id)
+    {
+        $tagparrent = TagParrent::where('id', $tagparrent_id)->first();
+        // return $tagparrent_id;
+        $tagparrent->delete();
         return redirect()->back()->with('message', 'Product and Image was Deleted!');
     }
 }

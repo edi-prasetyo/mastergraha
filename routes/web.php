@@ -14,6 +14,8 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\OptionController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\HelpController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\ProductController as FrontendProductController;
 use App\Http\Controllers\Frontend\OrderController as FrontendOrderController;
@@ -136,7 +138,24 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::get('/banks/edit/{bank}', 'edit');
         Route::put('/banks/{bank}', 'update');
     });
-    // Bank Route
+    // Tag Route
+    Route::controller(TagController::class)->group(function () {
+        Route::get('/tags', 'index');
+        Route::get('/tags/create', 'create');
+        Route::post('/tags', 'store');
+        Route::get('/tags/edit/{tag}', 'edit');
+        Route::put('/tags/{tag}', 'update');
+        Route::get('/tags/delete/{product_id}', 'destroy');
+    });
+    // Service Route
+    Route::controller(ServiceController::class)->group(function () {
+        Route::get('/services', 'index');
+        Route::get('/services/create', 'create');
+        Route::post('/services', 'store');
+        Route::get('/services/edit/{service}', 'edit');
+        Route::put('/services/{service}', 'update');
+    });
+    // Coupon Route
     Route::controller(CouponController::class)->group(function () {
         Route::get('/coupons', 'index');
         Route::get('/coupons/create', 'create');
@@ -158,6 +177,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::get('/products/edit_website/{website_id}', 'edit_website');
         Route::put('/products/update_website/{website_id}', 'update_website');
         Route::get('/products/delete_website/{website_id}', 'destroywebsite');
+        Route::get('/products/delete_tag/{tagparrent_id}', 'deletetag');
     });
     // Order Route
     Route::controller(OrderController::class)->group(function () {

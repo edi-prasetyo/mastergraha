@@ -16,6 +16,7 @@
     <link href="{{asset('admin/vendor/icons/fontawesome/css/all.min.css')}}" rel="stylesheet">
     <link href="{{asset('admin/vendor/icons/feather-icons/feather.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{('admin/vendor/autocomplete/jquery-ui.css')}}">
+    <link rel="stylesheet" href="{{('admin/vendor/select2/select2-bootstrap-5-theme.min.css')}}">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('admin/vendor/fonts/poppins/styles.css')}}">
@@ -54,7 +55,7 @@
 
     <link href="{{asset('admin/vendor/summernote/summernote-lite.min.css')}}" rel="stylesheet">
     <script src="{{asset('admin/vendor/summernote/summernote-lite.min.js')}}"></script>
-   
+
     <!--Menu Toggle Script-->
     <script>
         $("#menu-toggle").click(function(e) {
