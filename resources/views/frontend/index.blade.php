@@ -70,9 +70,6 @@
                 </div>
             </div>
             @endforeach
-
-
-
         </div>
         <div class="text-center mt-5">
             <a href="https://wa.me/6281233335523" class="btn btn-success btn-lg px-3"><i class='bx bxl-whatsapp'></i>
@@ -81,71 +78,74 @@
     </div>
 </section>
 
-<section class="bg-light" id="features">
+<section class="bg-white py-3" id="features">
     <div class="container my-5">
-        <div class="row gx-5">
-            <div class="col-lg-3 mb-5 mb-lg-0">
-                <h1 class="display-5 fw-bold mb-3 ls-sm ">
-                    <span class="text-primary">Aplikasi Website</span> Siap Pakai
-                </h1>
-                <p class="lead">
-                    Aplikasi siap Pakai sesuai Kebutuhan jenis bisnis Anda. Lihat detail aplikasi
-                </p>
-                <a href="https://grahastudio.com/grahastudio/product" class="btn btn-primary">Lihat Semua</a>
-            </div>
-            <div class="col-lg-9">
-                <div class="row g-4 row-cols-1 row-cols-lg-3">
-                    @forelse($products as $item)
-                    <div class="col-md-3">
-                        <a href="{{url('item/'.$item->slug)}}">
-                            <div class="card rounded mb-3 border-0 shadow-sm">
-                                <div class="card-img-cover">
-                                    <div class="card-img-frame">
-                                        <img src="{{asset($item->image_cover)}}" class="card-img-top rounded-bottom-0"
-                                            alt="{{$item->name}}">
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <a href="{{url('item/'.$item->slug)}}" class="text-muted text-decoration-none">
-                                        <h6>{{$item->name}}</h6>
-                                    </a>
-                                    {{-- <h5>IDR {{number_format($item->price,0)}}</h5> --}}
-                                </div>
-                                <div class="card-footer bg-white border-0">
-                                    <div class="row">
-                                        <div class="col-6 col-md-6 d-grid gap-2">
-                                            <a href="{{ url('subscription/'.$item->uuid) }}"
-                                                class="btn btn-outline-success text-center" role="button"> <i
-                                                    class='bx bx-shopping-bag'></i> Beli</a>
+        <div class="col-md-7 mx-auto text-center col-md-8 mx-auto">
+            <h1 class="display-5 fw-bold mb-3 ls-sm ">
+                <span class="text-primary">Pilih Jenis</span> Aplikasi yang sesuai
+            </h1>
+            <p class="lead">
+                Kami memiliki banyak jenis aplikasi website yang sesuai dengan bisnis proses anda, silahkan pilih yang
+                sesuai dengan bisnis yang anda jalankan
+            </p>
+            <a href="https://grahastudio.com/grahastudio/product" class="btn btn-primary my-3">Lihat Semua</a>
+        </div>
 
-                                        </div>
-                                        <div class="col-6 col-md-6 d-grid gap-2">
-                                            <a href="{{ $item->link_demo }}" class="btn btn-primary text-center"
-                                                role="button"> <i class='bx bx-copy-alt'></i> Preview</a>
-                                        </div>
-                                    </div>
+        <div class="col-md-9 mx-auto">
+            <div class="row">
+                @forelse($products as $item)
+                <div class="col-md-4">
+                    <a href="{{url('item/'.$item->slug)}}">
+                        <div class="card rounded mb-3 border-0 shadow-sm">
+                            <div class="card-img-cover">
+                                <div class="card-img-frame">
+                                    <img src="{{asset($item->image_cover)}}" class="card-img-top rounded-bottom-0"
+                                        alt="{{$item->name}}">
                                 </div>
                             </div>
-                        </a>
-                    </div>
-                    @empty
-                    <div class="h-100">
-                        <div class="col-md-8 mx-auto my-auto">
-                            <div class="card text-center">
-                                <div class="card-body">
-                                    <div class="my-auto">No Products Available</div>
+                            <div class="card-body">
+                                <a href="{{url('item/'.$item->slug)}}" class="text-muted text-decoration-none">
+                                    <h6>{{$item->name}}</h6>
+                                </a>
+                                {{-- <h5>IDR {{number_format($item->price,0)}}</h5> --}}
+                            </div>
+                            <div class="card-footer bg-white border-0">
+                                <div class="row">
+                                    <div class="col-6 col-md-6 d-grid gap-2">
+                                        <a href="{{ url('subscription/'.$item->uuid) }}"
+                                            class="btn btn-outline-success text-center" role="button"> <i
+                                                class='bx bx-shopping-bag'></i> Beli</a>
+
+                                    </div>
+                                    <div class="col-6 col-md-6 d-grid gap-2">
+                                        <a href="{{ $item->link_demo }}" class="btn btn-primary text-center"
+                                            role="button"> <i class='bx bx-copy-alt'></i> Preview</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    @endforelse
+                    </a>
                 </div>
+                @empty
+                <div class="h-100">
+                    <div class="col-md-8 mx-auto my-auto">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <div class="my-auto">No Products Available</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforelse
             </div>
         </div>
+
     </div>
 </section>
 
-<section class="bg-white py-5">
+
+
+{{-- <section class="bg-white py-5">
     <div class="container col-md-8 mx-auto">
         <div class="row">
             <div class="col-md-7" data-aos="fade-right">
@@ -193,200 +193,338 @@
             </div>
         </div>
     </div>
+</section> --}}
+
+
+<section>
+    <div class="container">
+        <div class="col-md-6 mx-auto text-center my-5">
+            <h1 class="display-5 fw-bold mb-3 ls-sm ">
+                <span class="text-primary">Benefit Memiliki</span> Website sendiri
+            </h1>
+        </div>
+        <div class="col-md-9 mx-auto">
+            <div class="row mb-5">
+                <div class="col-md-4">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="card-header border-0 bg-white d-flex align-items-start">
+                                <div
+                                    class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 p-2 rounded me-3">
+                                    <i class='bx bx-trophy'></i>
+                                </div>
+                                <h4> Brand Identity</h4>
+                            </div>
+
+                            <p class="text-muted">
+                                Brand Identity sangat penting dalam sebuah perusahaan, Biasanya perusahan memiliki
+                                system
+                                website sendiri untuk memperkenalkan produk dan jasa mereka.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="card-header border-0 bg-white d-flex align-items-start">
+                                <div
+                                    class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 p-2 rounded me-3">
+                                    <i class='bx bx-store-alt'></i>
+                                </div>
+                                <h4> Profile Usaha</h4>
+                            </div>
+
+                            <p class="text-muted">
+                                Website menjadi salah satu icon untuk mengenalkan produk kepada klien, dengan website
+                                klien
+                                lebih mudah mencari informasi tentang usaha anda.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body mb-3">
+                            <div class="card-header border-0 bg-white d-flex align-items-start">
+                                <div
+                                    class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 p-2 rounded me-3">
+                                    <i class='bx bx-shape-square'></i>
+                                </div>
+                                <h4> System Operasional</h4>
+                            </div>
+                            <p class="text-muted">
+                                Website juga mampu membantu dalam pengelolaan operasional perusahaan seperti,
+                                pengelolaan
+                                stok barang, pengelolaan booking online, pengelolaan data customer dll.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="col-md-6 mx-auto text-center my-5">
+            <h1 class="display-5 fw-bold mb-3 ls-sm ">
+                <span class="text-primary">Langkah mudah</span> Pemesanan Website
+            </h1>
+        </div>
+        <div class="col-md-8 mx-auto">
+            <div class="">
+                <div class="alert alert-primary">
+                    <h4>
+                        <div
+                            class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 p-2 rounded me-3">
+                            <i class='bx bx-laptop'></i>
+                        </div> Pilih Jenis Aplikasi website
+                    </h4>
+                    Pilih Jenis Website yang sesuai dengan bisnis yang kamu jalankan, kamu juga bisa melihat demo
+                    websitenya, dan bahkan bisa masuk juga ke admin dashboardnya, jika sudah cocok, klik ORDER
+                </div>
+
+                <div class="alert alert-primary">
+                    <h4>
+                        <div
+                            class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 p-2 rounded me-3">
+                            <i class='bx bx-copy-alt'></i>
+                        </div> Pilih Paket Berlangganan
+                    </h4>
+                    Pilih paket berlangganan, dengan menyesuaikan budget bisa digunakan kemudian klik tombol Order
+                </div>
+                <div class="alert alert-primary">
+                    <h4>
+                        <div
+                            class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 p-2 rounded me-3">
+                            <i class='bx bx-copy-alt'></i>
+                        </div> Tentukan Nama Domain
+                    </h4>
+                    Cari Nama Domain untuk nama domain anda, tips mencari nama domain, Jika nama domain tidak tersedia
+                    berarti nama tersebut sudah di gunakan orang lain, coba mengganti extensi lain misalnya .net, .org
+                    .co.id, atau bisa juga mengubah nama lain, jika pencarian nama domain tersedia, silahkan pilih
+                    durasi
+                    berlangganan, min. durasi adalah 6 bulan, kemudian klik tombol proses order.
+                </div>
+                <div class="alert alert-primary">
+                    <h4>
+                        <div
+                            class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 p-2 rounded me-3">
+                            <i class='bx bx-credit-card'></i>
+                        </div> Lakukan Pembayaran
+                    </h4>
+                    Jika order sudah jadi silahkan lakukan pembayaran bayar, kemudian lakukan konfirmasi pembayaran,
+                    maka
+                    website anda akan segera di proses dengan waktu sesuai paket yang anda pilih.
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="my-5">
+    <div class="container">
+        <div class="col-md-8 mx-auto">
+            <div class="col-md-6 mx-auto text-center my-5">
+                <h1 class="display-5 fw-bold mb-3 ls-sm ">
+                    <span class="text-primary">Pertanyaan</span> Umum
+                </h1>
+            </div>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Apa itu Graha Studio?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <p>
+                                Graha Studio adalah layanan jasa pembuatan website Instant tanpa ribet ngoding dan
+                                setup,
+                                semua
+                                sudah satu paket sekali bayar. Harga murah dan banyak pilihan jenis website sesuai
+                                bisnis
+                                yang
+                                kamu jalankan
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Berapa Lama Sampai Website saya Online?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Untuk Website Instan butuh Waktu sekitar 2-3 hari sudah bisa tayang, setelah melakukan
+                            pembayaran tetapi jika anda merekuest fitur baru yang tidak ada di aplikasi maka akan
+                            membutuhkan waktu lagi sesuai dengan tingkat kesulitan fitur yang akan di tambahkan
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Apakah ada Garansi jika terjadi error atau fitur yang tidak berfungsi?
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            untuk Paket personal Lisensi, Kami memberikan Garansi perbaikan jika terjadi error pada
+                            website,
+                            sedangkaan untuk paket full lisensi kami hanya memberikan free garansi selama 2 bulan
+                            setelah
+                            website tayang, adapun error yang di sebabkan kelalaian pengguna ( pelanggan mengotak atik
+                            source code dll) maka akan dikenakan biaya charge perbaikan.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            Apakah Graha Studio memnyediakan Maintanance?
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Ya, Kami menyediakan layanan Maintanance, untuk paket personal Lisensi Kami memberikan free
+                            maintanance selama kontrak terus berjalan, kecuali penambahan fitur baru maka akan di
+                            kenakan
+                            biaya tambahan sesuai dengan fitur yang dibuat. sedangkan untuk paket Full Lisensi kami juga
+                            menyediakan jasa maintanance pertahun, dengan biaya disesuaikan.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            Bagaimana cara saya membeli produk ini?
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Silahkan pilih salah satu tipe produk kemudian klik tombol Order, pastikan anda sudah login
+                            ke
+                            akun grahastudio, jika belum punya akun silahkan daftar <a href="{{url('register')}}">
+                                disini</a> kemudian cari nama domain yang tersedia, kalu proses order, setelah itu
+                            lakukan
+                            pembayaran, maka website anda akan di proses 2-3 hari. Jika anda mengalami kesulitan
+                            silahkan
+                            hubungi kami melalui Whatsapp <a class="btn btn-success"
+                                href="https://wa.me/{{$option_nav->whatsapp}}">Chat Whatsapp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </section>
 
 
-<section class="my-5">
-    <div class="col-md-8 mx-auto">
-
-        <div class="col-md-6 mx-auto text-center my-5">
-            <h1 class="display-5 fw-bold mb-3 ls-sm ">
-                <span class="text-primary">Pertanyaan</span> Umum
-            </h1>
-        </div>
-        <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Apa itu Graha Studio?
-                    </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <p>
-                            Graha Studio adalah layanan jasa pembuatan website Instant tanpa ribet ngoding dan setup,
-                            semua
-                            sudah satu paket sekali bayar. Harga murah dan banyak pilihan jenis website sesuai bisnis
-                            yang
-                            kamu jalankan
+{{-- <section class="py-5 my-5">
+    <div class="hero-img">
+        <div class="container px-4 px-lg-0 col-md-8 mx-auto">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="mb-4 text-center text-xl-start px-md-8 px-lg-19 px-xl-0">
+                        <h1 class="display-3 fw-bold mb-3 ls-sm ">
+                            <span class="text-primary">Motion Graphic</span>, Video Editing
+                        </h1>
+                        <p class="mb-6 lead pe-lg-6">
+                            Layanan Jasa Pembuatan Video Animasi Motion Graphic untuk profil perusahaan, kami juga
+                            melayani shooting video dan editing video untuk vlog dan lainnya
                         </p>
+                        <a href="https://bit.ly/geeksui" class="btn btn-dark" target="_blank" title="Buy Geeks"><i
+                                class="bi bi-cart-check-fill me-2"></i>Minta Penawaran</a>
                     </div>
                 </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Berapa Lama Sampai Website saya Online?
-                    </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        Untuk Website Instan butuh Waktu sekitar 2-3 hari sudah bisa tayang, setelah melakukan
-                        pembayaran tetapi jika anda merekuest fitur baru yang tidak ada di aplikasi maka akan
-                        membutuhkan waktu lagi sesuai dengan tingkat kesulitan fitur yang akan di tambahkan
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Apakah ada Garansi jika terjadi error atau fitur yang tidak berfungsi?
-                    </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        untuk Paket personal Lisensi, Kami memberikan Garansi perbaikan jika terjadi error pada website,
-                        sedangkaan untuk paket full lisensi kami hanya memberikan free garansi selama 2 bulan setelah
-                        website tayang, adapun error yang di sebabkan kelalaian pengguna ( pelanggan mengotak atik
-                        source code dll) maka akan dikenakan biaya charge perbaikan.
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                        Apakah Graha Studio memnyediakan Maintanance?
-                    </button>
-                </h2>
-                <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        Ya, Kami menyediakan layanan Maintanance, untuk paket personal Lisensi Kami memberikan free
-                        maintanance selama kontrak terus berjalan, kecuali penambahan fitur baru maka akan di kenakan
-                        biaya tambahan sesuai dengan fitur yang dibuat. sedangkan untuk paket Full Lisensi kami juga
-                        menyediakan jasa maintanance pertahun, dengan biaya disesuaikan.
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                        Bagaimana cara saya membeli produk ini?
-                    </button>
-                </h2>
-                <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        Silahkan pilih salah satu tipe produk kemudian klik tombol Order, pastikan anda sudah login ke
-                        akun grahastudio, jika belum punya akun silahkan daftar <a href="{{url('register')}}">
-                            disini</a> kemudian cari nama domain yang tersedia, kalu proses order, setelah itu lakukan
-                        pembayaran, maka website anda akan di proses 2-3 hari. Jika anda mengalami kesulitan silahkan
-                        hubungi kami melalui Whatsapp <a class="btn btn-success"
-                            href="https://wa.me/{{$option_nav->whatsapp}}">Chat Whatsapp</a>
+                <div class="col-md-6">
+                    <div class="">
+                        <iframe width="560" height="315"
+                            src="https://www.youtube.com/embed/6nWVwqkMf3E?si=jSEsDBBjCFjEkznj&amp;controls=0"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</section> --}}
 
+
+
+{{-- <section class="py-3 py-md-5 bg-white">
+    <div class="container col-md-8 mx-auto">
+        <div class="col-md-8 mx-auto text-center">
+            <h1 class="display-3 fw-bold mb-3 ls-sm ">
+                <span class="text-primary">Artikel</span> dan Informasi
+            </h1>
+            <p class="mb-6 lead pe-lg-6">
+                Berita dan Informasi Teknologi
+            </p>
+        </div>
     </div>
 
+    <div class="container overflow-hidden col-md-8 mx-auto">
+        <div class="row gy-4 gy-lg-0">
+            <div class="col-12 col-lg-4">
+                <article>
+                    <div class="card border-0">
+                        <figure class="card-img-top m-0 overflow-hidden bsb-overlay-hover">
+                            <a href="#!">
+                                <img class="img-fluid bsb-scale bsb-hover-scale-up" loading="lazy"
+                                    src="http://localhost:8000/uploads/products/1693588999.jpg" alt="">
+                            </a>
 
-
-    {{-- <section class="py-5 my-5">
-        <div class="hero-img">
-            <div class="container px-4 px-lg-0 col-md-8 mx-auto">
-                <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <div class="mb-4 text-center text-xl-start px-md-8 px-lg-19 px-xl-0">
-                            <h1 class="display-3 fw-bold mb-3 ls-sm ">
-                                <span class="text-primary">Motion Graphic</span>, Video Editing
-                            </h1>
-                            <p class="mb-6 lead pe-lg-6">
-                                Layanan Jasa Pembuatan Video Animasi Motion Graphic untuk profil perusahaan, kami juga
-                                melayani shooting video dan editing video untuk vlog dan lainnya
-                            </p>
-                            <a href="https://bit.ly/geeksui" class="btn btn-dark" target="_blank" title="Buy Geeks"><i
-                                    class="bi bi-cart-check-fill me-2"></i>Minta Penawaran</a>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="">
-                            <iframe width="560" height="315"
-                                src="https://www.youtube.com/embed/6nWVwqkMf3E?si=jSEsDBBjCFjEkznj&amp;controls=0"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
-
-
-
-    {{-- <section class="py-3 py-md-5 bg-white">
-        <div class="container col-md-8 mx-auto">
-            <div class="col-md-8 mx-auto text-center">
-                <h1 class="display-3 fw-bold mb-3 ls-sm ">
-                    <span class="text-primary">Artikel</span> dan Informasi
-                </h1>
-                <p class="mb-6 lead pe-lg-6">
-                    Berita dan Informasi Teknologi
-                </p>
-            </div>
-        </div>
-
-        <div class="container overflow-hidden col-md-8 mx-auto">
-            <div class="row gy-4 gy-lg-0">
-                <div class="col-12 col-lg-4">
-                    <article>
-                        <div class="card border-0">
-                            <figure class="card-img-top m-0 overflow-hidden bsb-overlay-hover">
-                                <a href="#!">
-                                    <img class="img-fluid bsb-scale bsb-hover-scale-up" loading="lazy"
-                                        src="http://localhost:8000/uploads/products/1693588999.jpg" alt="">
-                                </a>
-
-                            </figure>
-                            <div class="card-body border bg-white p-4">
-                                <div class="entry-header mb-3">
-                                    <ul class="entry-meta list-unstyled d-flex mb-2">
-                                        <li>
-                                            <a class="link-primary text-decoration-none" href="#!">Business</a>
-                                        </li>
-                                    </ul>
-                                    <h2 class="card-title entry-title h4 mb-0">
-                                        <a class="link-dark text-decoration-none" href="#!">Overcoming Challenges to
-                                            Make a
-                                            Living Online</a>
-                                    </h2>
-                                </div>
-
-                            </div>
-                            <div class="card-footer border border-top-0 bg-white p-4">
-                                <ul class="entry-meta list-unstyled d-flex align-items-center m-0">
-                                    <li class="me-5">
-                                        <i class='bx bx-calendar-alt'></i>
-                                        <span class="ms-2 fs-7">7 Feb 2023</span>
-
-                                    </li>
+                        </figure>
+                        <div class="card-body border bg-white p-4">
+                            <div class="entry-header mb-3">
+                                <ul class="entry-meta list-unstyled d-flex mb-2">
                                     <li>
-                                        <i class='bx bx-comment'></i>
-                                        <span class="ms-2 fs-7">55</span>
-
+                                        <a class="link-primary text-decoration-none" href="#!">Business</a>
                                     </li>
                                 </ul>
+                                <h2 class="card-title entry-title h4 mb-0">
+                                    <a class="link-dark text-decoration-none" href="#!">Overcoming Challenges to
+                                        Make a
+                                        Living Online</a>
+                                </h2>
                             </div>
-                        </div>
-                    </article>
 
-                </div>
+                        </div>
+                        <div class="card-footer border border-top-0 bg-white p-4">
+                            <ul class="entry-meta list-unstyled d-flex align-items-center m-0">
+                                <li class="me-5">
+                                    <i class='bx bx-calendar-alt'></i>
+                                    <span class="ms-2 fs-7">7 Feb 2023</span>
+
+                                </li>
+                                <li>
+                                    <i class='bx bx-comment'></i>
+                                    <span class="ms-2 fs-7">55</span>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
             </div>
         </div>
-    </section> --}}
+    </div>
+</section> --}}
 
-    @endsection
+@endsection
