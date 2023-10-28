@@ -143,8 +143,6 @@
     </div>
 </section>
 
-
-
 {{-- <section class="bg-white py-5">
     <div class="container col-md-8 mx-auto">
         <div class="row">
@@ -194,7 +192,6 @@
         </div>
     </div>
 </section> --}}
-
 
 <section>
     <div class="container">
@@ -319,7 +316,6 @@
                     maka
                     website anda akan segera di proses dengan waktu sesuai paket yang anda pilih.
                 </div>
-
             </div>
         </div>
     </div>
