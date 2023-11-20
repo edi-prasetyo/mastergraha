@@ -16,8 +16,11 @@
   <link rel="stylesheet" href="{{asset('assets/vendor/boxicon/css/boxicons.min.css')}}">
   <link href="{{asset('assets/vendor/offcanvas/offcanvas-navbar.css')}}" rel="stylesheet">
   <link href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/vendor/fonts/urbanist/styles.css')}}">
   <link href="{{asset('assets/css/custom.css')}}" rel="stylesheet">
   <link href="{{asset('assets/css/star.css')}}" rel="stylesheet">
+  <link href="{{asset('assets/vendor/glypicons/bootstrap-icons.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.2/components/navbars/navbar-1/assets/css/navbar-1.css">
 
 
 </head>
@@ -46,17 +49,28 @@
 	});
 </script>
 
-{{-- <script type="text/javascript">
-  var nav = document.querySelector('nav');
+<script type="text/javascript">
+  $(function () {
+    $(window).on('scroll', function () {
+        if ( $(window).scrollTop() > 10 ) {
+            $('.navbar').addClass('active');
+        } else {
+            $('.navbar').removeClass('active');
+        }
+    });
+});
+
+
+  // var nav = document.querySelector('nav');
   
-        window.addEventListener('scroll', function () {
-          if (window.pageYOffset > 100) {
-            nav.classList.add('bg-white', 'shadow-sm');
-          } else {
-            nav.classList.remove('bg-white', 'shadow-sm');
-          }
-        });
-</script> --}}
+  //       window.addEventListener('scroll', function () {
+  //         if (window.pageYOffset > 100) {
+  //           nav.classList.add('bg-white', 'shadow-sm');
+  //         } else {
+  //           nav.classList.remove('bg-white', 'shadow-sm');
+  //         }
+  //       });
+</script>
 
 @yield('scripts')
 

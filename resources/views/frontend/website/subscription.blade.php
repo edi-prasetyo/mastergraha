@@ -3,29 +3,30 @@
 @section('content')
 
 
-<section class="mt-5 py-5" style="background: radial-gradient(ellipse at bottom, #2b3d51 0%, #090a0f 100%);">
+<section class="py-5" style="background: linear-gradient(to right, rgb(1, 22, 56), rgb(3, 69, 141));">
 
-    {{-- <div id='stars'></div>
-    <div id='stars2'></div>
-    <div id='stars3'></div> --}}
+    <div class="star-height">
+        <div id='stars'></div>
+        <div id='stars2'></div>
+        <div id='stars3'></div>
 
-
-    <div class="container col-md-9 mx-auto">
-        <div class="">
-            <div class="row py-5">
-                <div class="col-md-6">
-                    <h1 class="display-5 fw-bold mb-3 ls-sm text-white">
-                        <span class="text-warning">{{$productDetail->name}}</span>
-                    </h1>
-                    <p class="lead text-white">{{$productDetail->meta_description}}</p>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                        <a href="{{url('item/' .$productDetail->slug)}}"
-                            class="btn btn-warning btn-lg px-4 me-md-2">Detail Aplikasi</a>
+        <div class="container col-md-9 mx-auto pt-5">
+            <div class="">
+                <div class="row py-5">
+                    <div class="col-md-6">
+                        <h1 class="display-5 fw-bold mb-3 ls-sm text-white">
+                            <span class="text-warning">{{$productDetail->name}}</span>
+                        </h1>
+                        <p class="lead text-white">{{$productDetail->meta_description}}</p>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-5">
+                            <a href="{{url('item/' .$productDetail->slug)}}"
+                                class="btn btn-warning btn-lg px-4 me-md-2">Detail Aplikasi</a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <img src="{{asset($productDetail->image_cover)}}" class="d-block mx-lg-auto img-fluid rounded"
-                        loading="lazy">
+                    <div class="col-md-6">
+                        <img src="{{asset($productDetail->image_cover)}}" class="d-block mx-lg-auto img-fluid rounded"
+                            loading="lazy">
+                    </div>
                 </div>
             </div>
         </div>

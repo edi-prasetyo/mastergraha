@@ -20,6 +20,7 @@ use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\ProductController as FrontendProductController;
 use App\Http\Controllers\Frontend\OrderController as FrontendOrderController;
 use App\Http\Controllers\Frontend\PageController as FrontendPageController;
+use App\Http\Controllers\Frontend\HelpController as FrontendHelpController;
 // use App\Http\Controllers\Frontend\BlogController as FrontendBlogController;
 use App\Http\Controllers\Frontend\WebsiteController;
 use App\Http\Controllers\HomeController;
@@ -75,6 +76,8 @@ Route::get('/item/{product_slug}', [FrontendProductController::class, 'detail'])
 Route::get('/products', [FrontendProductController::class, 'index']);
 Route::get('/pages', [FrontendPageController::class, 'index']);
 Route::get('/pages/detail/{slug}', [FrontendPageController::class, 'detail']);
+Route::get('/helps', [FrontendHelpController::class, 'index']);
+Route::get('/helps/search', [FrontendHelpController::class, 'search']);
 // Route::get('/blog', [FrontendBlogController::class, 'index']);
 
 
@@ -207,10 +210,13 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::controller(HelpController::class)->group(function () {
         Route::get('/helps', 'index');
         Route::get('/helps/create', 'create');
-        Route::post('/helps/create', 'store');
+        Route::post('/helps', 'store');
         Route::get('/helps/edit/{help}', 'edit');
         Route::put('/helps/{help}', 'update');
         Route::get('/helps/delete/{help}', 'destroy');
+        // Helps Item
+        Route::get('/helps/show/{help_id}', 'show');
+        Route::post('/helps/add-item', 'add_item');
     });
 
     // Option Route

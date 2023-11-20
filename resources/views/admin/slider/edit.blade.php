@@ -9,6 +9,13 @@
 
 <div class="col-md-12">
     <div class="card">
+        @if ($errors->any())
+        <div class="alert alert-warning">
+            @foreach ($errors->all() as $error)
+            <div>{{ $error }}</div>
+            @endforeach
+        </div>
+        @endif
         <div class="card-header bg-white">
             <h4>Edit Slider</h4>
         </div>

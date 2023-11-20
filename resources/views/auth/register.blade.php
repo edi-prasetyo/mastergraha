@@ -1,14 +1,14 @@
 @extends('layouts.app')
 @include('layouts.inc.frontend.header')
 @section('content')
-<div class="container mb-5">
+<div class="container mb-5 my-5">
     <div class="row justify-content-center">
         <div class="col-md-5">
-            <div class="card border-0">
+            <div class="card shadow-sm">
 
 
                 <div class="card-body px-5">
-      
+
                     <h4>{{ __('Register') }}</h4>
 
 
