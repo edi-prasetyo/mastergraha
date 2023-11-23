@@ -147,7 +147,7 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="d-grid">
-                                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                                            <button class="btn btn-primary" type="submit">Subscribe </button>
                                         </div>
                                     </div>
                                 </div>
