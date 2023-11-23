@@ -1,7 +1,7 @@
 <nav class="navbar navbar-custom fixed-top navbar-expand-lg navbar-light bsb-navbar bsb-navbar-hover bsb-navbar-caret"
     aria-label="Offcanvas navbar large">
     <div class="container col-md-9 mx-auto">
-        <a class="navbar-brand" href="{{url('')}}"><img style="width:200px;"
+        <a class="navbar-brand" href="{{url('/')}}"><img style="width:200px;"
                 src="{{asset('uploads/logo/logo.svg')}}"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2"
             aria-controls="offcanvasNavbar2">
