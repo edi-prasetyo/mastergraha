@@ -1,6 +1,6 @@
 <nav class="navbar navbar-custom fixed-top navbar-expand-lg navbar-light bsb-navbar bsb-navbar-hover bsb-navbar-caret"
     aria-label="Offcanvas navbar large">
-    <div class="container col-md-8 mx-auto">
+    <div class="container col-md-9 mx-auto">
         <a class="navbar-brand" href="{{url('')}}"><img style="width:200px;"
                 src="{{asset('uploads/logo/logo.svg')}}"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2"
@@ -23,7 +23,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('products')}}">Products</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('helps')}}">Bantuan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('blog')}}">blog</a>
+                    </li>
+                    {{-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#!" id="accountDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">Account</a>
                         <ul class="dropdown-menu border-0 shadow bsb-zoomIn" aria-labelledby="accountDropdown">
@@ -34,20 +40,6 @@
                             </li>
                             <li><a class="dropdown-item" href="#!">Sign up</a></li>
                         </ul>
-                    </li>
-                    {{-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle dropdown-plus" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Products
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
                     </li> --}}
                 </ul>
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -56,11 +48,11 @@
                             session('cart')) }}</span></a> --}}
                     @guest
                     @if (Route::has('register'))
-                    <li class="nav-item me-2 my-auto">
+                    {{-- <li class="nav-item me-2 my-auto">
                         <a class="nav-link btn btn-success btn-rounded btn-sm fs-6"
                             href="https://wa.me/{{$option_nav->whatsapp}}"><i class='bx bxl-whatsapp fs-5'></i>
                             {{$option_nav->phone}}</a>
-                    </li>
+                    </li> --}}
                     @endif
                     @if (Route::has('login'))
                     <li class="nav-item">
@@ -70,9 +62,6 @@
                     </li>
                     @endif
                     @else
-
-
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#!" id="accountDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->name }}</a>
@@ -82,7 +71,6 @@
                                 <a class="dropdown-item" href="{{ url('admin/dashboard') }}">
                                     Dashboard
                                 </a>
-
                             </li>
                             <li>
                                 <a class="dropdown-item" href="{{ url('member/dashboard') }}">
@@ -106,10 +94,6 @@
                             </li>
                         </ul>
                     </li>
-
-
-
-
                     @endguest
                 </ul>
             </div>

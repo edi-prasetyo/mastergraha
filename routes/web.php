@@ -70,6 +70,7 @@ Route::prefix('member')->middleware(['auth'])->group(function () {
 });
 
 Route::get('/', [FrontendController::class, 'index']);
+Route::get('/contact', [FrontendController::class, 'contact']);
 Route::get('/category', [FrontendController::class, 'categories']);
 Route::get('/category/{category_slug}', [FrontendController::class, 'products']);
 Route::get('/item/{product_slug}', [FrontendProductController::class, 'detail']);
@@ -77,8 +78,9 @@ Route::get('/products', [FrontendProductController::class, 'index']);
 Route::get('/pages', [FrontendPageController::class, 'index']);
 Route::get('/pages/detail/{slug}', [FrontendPageController::class, 'detail']);
 Route::get('/helps', [FrontendHelpController::class, 'index']);
+Route::get('/helps/detail/{slug}', [FrontendHelpController::class, 'show']);
 Route::get('/helps/search', [FrontendHelpController::class, 'search']);
-// Route::get('/blog', [FrontendBlogController::class, 'index']);
+
 
 
 // Cart

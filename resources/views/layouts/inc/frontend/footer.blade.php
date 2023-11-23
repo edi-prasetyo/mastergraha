@@ -63,13 +63,7 @@
         </div>
     </div>
 </div> --}}
-
-
-
-
-
-
-<footer class="footer">
+<footer class="footer text-muted">
     <section class="py-4 py-md-5 py-xl-8 bg-light border-top">
         <div class="container overflow-hidden">
             <div class="col-md-10 mx-auto">
@@ -77,7 +71,6 @@
                     <div class="col-12 col-md-4 col-lg-4">
                         <div class="widget">
                             <h4 class="widget-title mb-4">Hubungi</h4>
-
                             <address class="mb-4 pe-3"><i class='bx bx-map'></i> {{$option_nav->address}}</address>
                             <p class="mb-1">
                                 <i class='bx bxl-whatsapp'></i> <a class="link-secondary text-decoration-none"
@@ -90,7 +83,6 @@
                             </p>
                         </div>
                     </div>
-
                     <div class="col-12 col-sm-6 col-md-3 col-lg-2">
                         <div class="widget">
                             <h4 class="widget-title mb-4">Menu</h4>
@@ -100,13 +92,31 @@
                                 </li>
                                 <li class="mb-2">
                                     <a href="{{url('/products')}}"
-                                        class="link-secondary text-decoration-none">Produk</a>
+                                        class="link-secondary text-decoration-none">Product</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{{url('/blog')}}" class="link-secondary text-decoration-none">Blog</a>
                                 </li>
                                 <li class="mb-2">
                                     <a href="{{url('/helps')}}" class="link-secondary text-decoration-none">Bantuan</a>
                                 </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-3 col-lg-2">
+                        <div class="widget">
+                            <h4 class="widget-title mb-4 opacity-0">Menu</h4>
+                            <ul class="list-unstyled">
                                 <li class="mb-2">
-                                    <a href="#!" class="link-secondary text-decoration-none">Terms of Service</a>
+                                    <a href="{{url('/contact')}}" class="link-secondary text-decoration-none">Hubungi
+                                        Kami</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{{url('/helps')}}" class="link-secondary text-decoration-none">Tentang
+                                        Kami</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#!" class="link-secondary text-decoration-none">Kebijakan Privasi</a>
                                 </li>
                                 <li class="mb-0">
                                     <a href="#!" class="link-secondary text-decoration-none">Privacy Policy</a>
@@ -117,7 +127,7 @@
                     <div class="col-12 col-lg-4">
                         <div class="widget">
                             <h4 class="widget-title mb-4">Berlangganan</h4>
-                            <p class="mb-4">Subscribe to our newsletter to get our news & discounts delivered to you.
+                            <p class="mb-4">Dapatkan Informasi Diskon atau artikel menarik dari kami melalui email
                             </p>
                             <form action="#!">
                                 <div class="row gy-4">
@@ -148,14 +158,11 @@
             </div>
         </div>
     </section>
-
-
-    <div class="bg-light py-4 py-md-5 py-xl-8 border-top border-light-subtle">
+    <div class="bg-light py-4 py-xl-8 border-light-subtle">
         <div class="container">
-
-            <div class="col-md-12 mx-auto">
+            <div class="col-md-10 mx-auto py-md-5 border-top">
                 <div class="text-center">
-                    Copyright &copy; 2024 Graha Studio. All Rights Reserved.
+                    Copyright &copy; 2024 {{$option_nav->title}}. All Rights Reserved.
                     <div class="col-md-12">
                         <ul class="social-network social-circle">
 
@@ -172,11 +179,7 @@
                         </ul>
                     </div>
                 </div>
-
-
             </div>
-
         </div>
     </div>
-
 </footer>

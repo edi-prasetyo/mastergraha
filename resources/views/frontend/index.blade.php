@@ -1,20 +1,14 @@
 @extends('layouts.app')
 @section('title', 'Graha Studio')
 @section('content')
-
 <section class="" style="background: radial-gradient(ellipse at bottom, #2b3d51 0%, #090a0f 100%);">
     <div class="star-height">
         <div id='stars'></div>
         <div id='stars2'></div>
         <div id='stars3'></div>
-
-
         <div class="container py-5 col-md-9 mx-auto">
             @foreach($sliders as $key => $slider)
-
-
             <div class="row align-items-center g-5 py-5">
-
                 <div class="col-md-6">
                     <h1 class="display-1 fw-bold mb-3">
                         <span class="text-info text-animation-color">{{$slider->title}}</span>
@@ -26,19 +20,14 @@
                             Penawaran</a>
                     </div>
                 </div>
-
                 <div class="col-md-6 hero-image">
                     <img src="{{asset($slider->image)}}" class="d-block mx-lg-auto img-fluid" loading="lazy">
                 </div>
             </div>
-
             @endforeach
-
         </div>
     </div>
 </section>
-
-
 <section class="py-5 my-5">
     <div class="container col-md-9 mx-auto">
         <div class="col-md-8 mx-auto">
@@ -51,7 +40,6 @@
                 </p>
             </div>
         </div>
-
         <div class="row">
             @foreach($services as $key => $data)
             <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="50">
@@ -78,7 +66,6 @@
         </div>
     </div>
 </section>
-
 <section class="bg-white py-3" id="features">
     <div class="container my-5">
         <div class="col-md-7 mx-auto text-center col-md-8 mx-auto">
@@ -89,9 +76,8 @@
                 Kami memiliki banyak jenis aplikasi website yang sesuai dengan bisnis proses anda, silahkan pilih yang
                 sesuai dengan bisnis yang anda jalankan
             </p>
-            <a href="https://grahastudio.com/grahastudio/product" class="btn btn-primary my-3">Lihat Semua</a>
+            <a href="{{url('/products')}}" class="btn btn-primary my-3">Lihat Semua</a>
         </div>
-
         <div class="col-md-9 mx-auto">
             <div class="row">
                 @forelse($products as $item)
@@ -140,10 +126,8 @@
                 @endforelse
             </div>
         </div>
-
     </div>
 </section>
-
 {{-- <section class="bg-white py-5">
     <div class="container col-md-8 mx-auto">
         <div class="row">
@@ -462,12 +446,7 @@
             </div>
         </div>
 
-
     </div> --}}
-
-
-
-
 
     {{-- <div class="container">
         <div class="col-md-6 mx-auto text-center my-5">
@@ -525,7 +504,6 @@
         </div>
     </div> --}}
 </section>
-
 <section class="my-5">
     <div class="container">
         <div class="col-md-8 mx-auto">
@@ -628,12 +606,9 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
-
-
 <section class="my-5">
     <div class="container">
         <div class="col-md-10 mx-auto">
@@ -641,13 +616,12 @@
                 <h1 class="display-5 fw-bold mb-3 ls-sm ">
                     <span class="text-primary">Artikel</span> Menarik
                 </h1>
+                <a href="{{url('/blog')}}" class="btn btn-primary my-3">Lihat Semua</a>
             </div>
-
             <div id="posts" class="row">
                 <div class="col-md-4">
                     <div class="card border-0 shadow loading">
                         <div class="image-loading">
-
                         </div>
                         <div class="content-loading">
                             <h4></h4>
@@ -678,19 +652,14 @@
                         <div class="content-loading">
                             <h4></h4>
                             <div class="description-loading">
-
                             </div>
                         </div>
                     </div>
                 </div>
-
-
             </div>
-
         </div>
     </div>
 </section>
-
 @endsection
 
 @section('scripts')
@@ -698,7 +667,7 @@
     $(document).ready(function () {
         $.ajax({
             type: 'GET',
-            url: 'https://edikomputer.com/wp-json/wp/v2/posts?per_page=3&orderby=id',
+            url: 'https://grahastudio.com/blog/wp-json/wp/v2/posts?per_page=3&orderby=id',
 
             success: function (data) {
                 var posts_html = '';

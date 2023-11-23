@@ -24,14 +24,19 @@ class FrontendController extends Controller
         $categories = Category::where('status', 1)->get();
         return view('frontend.category.index', compact('categories'));
     }
-    public function products($category_slug)
+    public function contact()
     {
-        $category = Category::where('slug', $category_slug)->first();
-        if ($category) {
-            $products =  $category->products()->get();
-            return view('frontend.category.products', compact('products', 'category'));
-        } else {
-            return redirect()->back();
-        }
+        return view('frontend.contact');
     }
+
+    // public function products($category_slug)
+    // {
+    //     $category = Category::where('slug', $category_slug)->first();
+    //     if ($category) {
+    //         $products =  $category->products()->get();
+    //         return view('frontend.category.products', compact('products', 'category'));
+    //     } else {
+    //         return redirect()->back();
+    //     }
+    // }
 }

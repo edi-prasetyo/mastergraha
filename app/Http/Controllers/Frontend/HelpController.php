@@ -34,6 +34,11 @@ class HelpController extends Controller
         // return $helps;
         return view('frontend.help.index', compact('helps', 'helpItems'));
     }
+    public function show($slug)
+    {
+        $help = HelpItem::where('slug', $slug)->first();
+        return view('frontend.help.show', compact('help'));
+    }
     public function search(Request $request)
     {
         $search = $request->search;

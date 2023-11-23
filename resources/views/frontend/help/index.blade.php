@@ -45,8 +45,8 @@
                         @if($item->help_id == $help->id)
 
                         <li class="list-group-item {{$item->title}}">
-                            <i class='bx bx-right-arrow-alt fs-5 me-2'></i> <a href="{{url('helps/'.$item->slug)}}"
-                                class="text-decoration-none text-muted">
+                            <i class='bx bx-right-arrow-alt fs-5 me-2'></i> <a
+                                href="{{url('helps/detail/'.$item->slug)}}" class="text-decoration-none text-muted">
                                 {{$item->title}} </a>
                         </li>
                         @endif
